@@ -346,7 +346,7 @@ export default function Footer() {
             className="mt-10 flex flex-col items-center gap-2 text-center text-xs md:flex-row md:justify-between md:items-center md:text-left"
             style={{ color: "rgba(248,246,243,0.25)" }}
           >
-            <span className="mt-10 md:mt-0">
+            <span className="mt-20 md:mt-0">
               © {new Date().getFullYear()} {brand.name}. All rights reserved.
             </span>
             <span style={{ color: "rgba(196,154,53,0.5)" }}>

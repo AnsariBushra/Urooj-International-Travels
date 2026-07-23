@@ -76,7 +76,7 @@ export default function Hero() {
       </div>
 
       <div
-        className="pointer-events-none absolute inset-4 z-30 rounded-2xl border border-cream/30 md:inset-8"
+        className="pointer-events-none absolute inset-4 z-30 rounded-2xl border border-cream/30 md:inset-4"
         aria-hidden
       />
 
@@ -117,7 +117,7 @@ export default function Hero() {
               as="a"
               href="tel:+919971337283"
               data-cursor="link"
-              className="inline-flex items-center gap-2 text-sm tracking-wide text-gold-bright underline-offset-4 hover:underline font-extrabold"
+              className="inline-flex items-center gap-2 text-sm tracking-wide bg-gold-bright rounded-full p-4 text-gray-900 underline-offset-4 hover:underline font-extrabold"
             >
               Book now: 9971337283
             </Magnetic>

@@ -63,7 +63,7 @@ export default function DestinationCard({
   const handleEnter = () => {
     gsap.to(imageRef.current, {
       scale: 1.1,
-      filter: "blur(4px)",
+      filter: "blur(5px)",
       duration: 0.8,
       ease: "power3.out",
     });
@@ -151,7 +151,7 @@ export default function DestinationCard({
         className="absolute inset-0 z-20 flex items-center justify-center px-6 text-center opacity-0"
         style={{ transform: "translateY(20px)" }}
       >
-        <p className="font-display max-w-sm whitespace-pre-line text-[17px] font-normal leading-[1.4] tracking-wide text-white">
+        <p className="font-display max-w-sm whitespace-pre-line text-[17px] font-normal leading-[1.4] tracking-wide text-white font-extrabold">
           {destination.hoverText}
         </p>
       </div>
