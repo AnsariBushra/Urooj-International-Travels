@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/* ────────────────────────────────────────────────────────────
+   Design tokens — "Soft dawn over the Haram"
+
+   A light, colorful pastel system: dawn-sky blue, warm stone grey,
+   sage green (echoing the Nabawi dome), lavender dusk, and warm sand
+   — replacing the old dark walnut/black theme entirely. Everything
+   sits on a near-white pastel canvas so the animated Three.js
+   background (soft floating colour blobs) reads clearly behind
+   glass panels.
+
+     --color-cream        #FFFBF5  primary background, warm white
+     --color-sand         #F6E9D7  secondary panels
+     --color-sky          #BFE3F0  pastel sky blue accent
+     --color-stone        #DCD7CF  warm neutral grey accent (was rose/pink)
+     --color-sage         #BFE0CB  pastel sage (Nabawi dome) accent
+     --color-lavender     #DCD2F0  pastel lavender accent
+     --color-gold         #D9A441  primary accent — warm gold
+     --color-gold-bright  #F0C168  hover/active gold
+     --color-ink          #2E2A26  primary text, warm near-black
+     --color-clay         #7A6F63  muted/secondary text
+   ──────────────────────────────────────────────────────────── */
+@theme inline {
+  --color-cream: #fffbf5;
+  --color-sand: #f6e9d7;
+  --color-sand-deep: #efd9b8;
+  --color-sky: #bfe3f0;
+  --color-sky-deep: #9bd2e6;
+  /* Renamed from "rose" to "stone": a warm neutral grey, not pink. */
+  --color-rose: #dcd7cf;
+  --color-rose-deep: #c7c0b5;
+  --color-stone: #dcd7cf;
+  --color-stone-deep: #c7c0b5;
+  --color-sage: #bfe0cb;
+  --color-sage-deep: #9bcdaf;
+  --color-lavender: #dcd2f0;
+  --color-lavender-deep: #c6b8e8;
+  --color-ink: #2e2a26;
+  --color-clay: #7a6f63;
+  --color-gold: #d9a441;
+  --color-gold-bright: #f0c168;
+  --color-line: rgba(46, 42, 38, 0.1);
+  --color-line-dark: rgba(255, 251, 245, 0.18);
+  --color-glass: rgba(255, 251, 245, 0.6);
+  --color-glass-dark: rgba(46, 42, 38, 0.45);
+
+  /* Back-compat aliases so existing component classes keep working
+     while every value now points at the new pastel palette. */
+  --color-void: #3a322b;
+  --color-panel: #463b32;
+  --color-panel-light: #564839;
+  --color-bone: var(--color-ink);
+  --color-mute: var(--color-clay);
+  --color-brass: var(--color-gold);
+  --color-brass-dim: #a87c2f;
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  --tracking-wide-label: 0.18em;
+
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: linear-gradient(160deg, #fbfaf7 0%, #f3f1ec 45%, #eceae4 100%);
+  scroll-behavior: auto; /* Lenis takes over; avoid native smooth-scroll conflicts */
+}
+
+body {
+  background: transparent;
+  color: var(--color-ink);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fixed full-viewport canvas host for the Three.js ambient background.
+   Sits behind everything (z-index 0) and never scrolls, never blocks
+   pointer events, and never affects layout. */
+#bg-canvas-root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(160deg, #fbfaf7 0%, #f3f1ec 45%, #eceae4 100%);
+}
+
+#bg-canvas-root canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Everything else renders above the canvas */
+#site-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Lenis required scaffolding */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Selection + focus states kept legible against the pastel palette */
+::selection {
+  background: var(--color-gold);
+  color: var(--color-cream);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Utility: glass surface used across cards, nav, form panels.
+   Light frosted-glass over the pastel canvas/animated background. */
+.glass-panel {
+  background: var(--color-glass);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: 0 8px 32px rgba(217, 164, 65, 0.08);
+}
+
+.glass-panel-dark {
+  background: var(--color-glass-dark);
+  border: 1px solid var(--color-line-dark);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+/* Utility: hidden-overflow wrapper for text-split line reveals.
+   The extra bottom padding (offset by a matching negative margin so
+   it doesn't add visual gap) gives descenders — g, y, j, q — room to
+   clear the mask edge; without it, tight heading line-heights clip
+   the bottom of any descender on every split-text heading. */
+.line-mask {
+  overflow: hidden;
+  display: block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+/* Eyebrow / label styling used for section labels throughout */
+.label-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide-label);
+  text-transform: uppercase;
+  color: var(--color-clay);
+}
+
+.label-eyebrow-dark {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide-label);
+  text-transform: uppercase;
+  color: rgba(255, 251, 245, 0.75);
+}
+
+/* Image-fit helper: keeps a fixed aspect box but lets each instance
+   set its own focal point via --img-pos, so portrait photography
+   (minarets, domes, faces) is never cropped on the wrong part. */
+.fit-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--img-pos, center);
+}
+
+/* Signature ambient motion — slow-drifting light motes, used as a
+   lightweight CSS supplement to the Three.js canvas on sections that
+   want a touch more sparkle (kept very subtle on the light theme). */
+@keyframes ember-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--ember-opacity, 0.5);
+  }
+  90% {
+    opacity: var(--ember-opacity, 0.5);
+  }
+  100% {
+    transform: translate3d(var(--ember-drift-x, 24px), var(--ember-drift-y, -220px), 0) scale(0.4);
+    opacity: 0;
+  }
+}
+
+.ember {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-gold-bright) 0%, var(--color-gold) 55%, transparent 100%);
+  filter: blur(0.5px);
+  animation: ember-drift var(--ember-duration, 9s) ease-in var(--ember-delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
