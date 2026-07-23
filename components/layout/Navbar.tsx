@@ -173,7 +173,7 @@ export default function Navbar() {
       {/* Mobile Sidebar */}
       <div
         ref={mobileMenuRef}
-        className="fixed top-0 right-0 z-[60] h-96 justify-center w-[85%] max-w-[280px] md:hidden"
+        className="fixed top-0 right-0 z-[60] h-full justify-center w-[85%] max-w-[280px] md:hidden"
         style={{
           background: "rgba(22,19,15,.96)",
           backdropFilter: "blur(24px)",
