@@ -76,7 +76,7 @@ export default function Hero() {
       </div>
 
       <div
-        className="pointer-events-none absolute inset-4 z-30 rounded-2xl border border-cream/30 md:inset-4"
+        className="pointer-events-none absolute inset-2 z-30 rounded-2xl border border-cream/30 md:inset-4"
         aria-hidden
       />
 
