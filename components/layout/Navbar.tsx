@@ -162,10 +162,18 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* Blur Background */}
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-md md:hidden"
+        />
+      )}
+
       {/* Mobile Sidebar */}
       <div
         ref={mobileMenuRef}
-        className="fixed top-0 right-0 z-[60] h-80 w-[85%] max-w-[280px] md:hidden"
+        className="fixed top-0 right-0 z-[60] h-96 justify-center w-[85%] max-w-[280px] md:hidden"
         style={{
           background: "rgba(22,19,15,.96)",
           backdropFilter: "blur(24px)",
