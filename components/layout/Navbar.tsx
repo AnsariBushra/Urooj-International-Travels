@@ -50,7 +50,7 @@ export default function Navbar() {
     if (menuOpen) {
       gsap.set(menu, {
         xPercent: 100,
-        visibility: "visible",
+        display: "block",
       });
 
       gsap.to(menu, {
@@ -63,11 +63,6 @@ export default function Navbar() {
         xPercent: 100,
         duration: 0.4,
         ease: "power3.in",
-        onComplete: () => {
-          gsap.set(menu, {
-            visibility: "hidden",
-          });
-        },
       });
     }
   }, [menuOpen]);
@@ -154,7 +149,7 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(true)}
-          className="flex h-8 w-8 flex-col items-end justify-center gap-1.5 md:hidden"
+          className="flex h-8 w-8 flex-col items-end gap-1.5 md:hidden"
           aria-label="Open Menu"
         >
           <span className={`h-px w-5 ${scrolled ? "bg-bone" : "bg-white"}`} />
@@ -170,7 +165,7 @@ export default function Navbar() {
       {/* Mobile Sidebar */}
       <div
         ref={mobileMenuRef}
-        className="fixed top-0 right-0 z-[60] invisible h-screen w-[85%] max-w-[340px] md:hidden"
+        className="fixed top-0 right-0 z-[60] h-80 w-[85%] max-w-[280px] md:hidden"
         style={{
           background: "rgba(22,19,15,.96)",
           backdropFilter: "blur(24px)",
@@ -187,20 +182,20 @@ export default function Navbar() {
 
         <button
           onClick={() => setMenuOpen(false)}
-          className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/10"
+          className="absolute right-6 top-6 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/10"
         >
           ✕
         </button>
 
-        <div className="relative flex h-full flex-col justify-center px-10">
-          <div className="space-y-8">
+        <div className="relative flex h-52 flex-col pt-20 px-10">
+          <div className="space-y-4">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
                 className="group block text-left"
               >
-                <span className="font-display text-4xl tracking-wide text-[#f8f6f3] transition duration-300 group-hover:text-[#d9a441]">
+                <span className="font-display text-xl tracking-wide text-[#f8f6f3] transition duration-300 group-hover:text-[#d9a441]">
                   {link.label}
                 </span>
 
@@ -211,7 +206,7 @@ export default function Navbar() {
 
           <button
             onClick={() => scrollTo("#plan")}
-            className="mt-14 w-fit rounded-full border border-[#d9a441]/50 bg-[#d9a441]/10 px-7 py-3 text-sm uppercase tracking-[0.22em] text-[#d9a441] transition-all duration-300 hover:bg-[#d9a441] hover:text-[#1a1710]"
+            className="mt-8 w-fit rounded-full border border-[#d9a441]/50 bg-[#d9a441]/10 px-4 py-2 text-xs uppercase tracking-[0.22em] text-[#d9a441] transition-all duration-300 hover:bg-[#d9a441] hover:text-[#1a1710]"
           >
             Book Consultation
           </button>
