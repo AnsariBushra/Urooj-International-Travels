@@ -91,7 +91,7 @@ export default function ParallaxLayerSection({
   return (
     <section
       ref={sectionRef}
-      className="relative grid min-h-[120vh] grid-cols-1 items-center gap-12 overflow-hidden px-6 py-32 md:grid-cols-12 md:px-10"
+      className="relative grid min-h-[120vh] grid-cols-1 items-center gap-8 overflow-hidden px-6 py-20 md:grid-cols-12 md:gap-12 md:px-10 md:py-32"
     >
       {/* Ambient background layer — slowest moving, gives depth, tinted per-section */}
       <div
@@ -123,7 +123,7 @@ export default function ParallaxLayerSection({
       </div>
 
       <div
-        className={`parallax-image relative z-10 col-span-12 aspect-square overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(217,164,65,0.15)] will-change-transform md:col-span-5 ${
+        className={`parallax-image relative z-10 col-span-12 mx-auto w-[80%] max-w-[320px] aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(217,164,65,0.15)] will-change-transform md:col-span-5 md:w-full md:max-w-none ${
           reverse ? "md:order-1 md:col-start-2" : "md:col-start-7"
         }`}
       >
