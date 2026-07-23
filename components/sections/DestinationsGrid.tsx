@@ -45,7 +45,11 @@ export default function DestinationsGrid() {
   });
 
   return (
-    <section ref={sectionRef} id="destinations" className="relative px-6 py-28 md:px-10 md:py-40">
+    <section
+      ref={sectionRef}
+      id="destinations"
+      className="relative px-6 py-28 md:px-10 md:py-40"
+    >
       <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
         <div className="md:col-span-7 md:col-start-3">
           <span className="label-eyebrow mb-5 block">Our Services</span>
@@ -71,10 +75,14 @@ export default function DestinationsGrid() {
           <DestinationCard destination={umrah} size="medium" />
         </div>
         <div className="destination-card-wrap md:col-span-3 md:col-start-10">
-          <DestinationCard destination={madinahZiyarat} size="short" offset={90} />
+          <DestinationCard
+            destination={madinahZiyarat}
+            size="short"
+            offset={90}
+          />
         </div>
 
-        <div className="destination-card-wrap md:col-span-3 md:col-start-3">
+        <div className="destination-card-wrap md:col-span-3 md:col-start-3 ">
           <DestinationCard destination={logistics} size="medium" offset={20} />
         </div>
         <div className="destination-card-wrap md:col-span-4 md:col-start-6">

@@ -36,6 +36,8 @@ export interface Destination {
   tagline: string;
   /** Longer copy for the destination's own page */
   description: string;
+  /** Short text shown in the center of the card on hover */
+  hoverText: string;
   heroImage: MediaAsset;
   gridImage: MediaAsset;
   /** Used for masonry / horizontal scroll thumbnails */

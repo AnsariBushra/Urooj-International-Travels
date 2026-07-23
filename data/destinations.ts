@@ -19,6 +19,9 @@ export const destinations: Destination[] = [
     tagline: "Every document. Every detail. Handled with care.",
     description:
       "A fully managed Hajj journey — passport validity, vaccination records, Nusuk requirements, and itinerary readiness checked before your file ever moves. From airport pickup to Mina, Arafat, and Muzdalifah, every step is coordinated so you can focus on worship.",
+
+hoverText:
+  "Every step of your sacred journey,\nplanned with care and devotion.",
     heroImage: {
       src: "/images/hajj/makkah.jpg",
       alt: "Pilgrims around the Kaaba at Masjid al-Haram, Makkah",
@@ -54,6 +57,9 @@ export const destinations: Destination[] = [
     tagline: "Better location. Better comfort. Better worship.",
     description:
       "Hotels chosen for proximity to the Haram — shorter walks, clearer meeting points, and realistic rest windows that make the sacred days easier. Thoughtful planning for a smoother journey, so you can focus on worship while we handle the rest.",
+
+hoverText:
+  "Peaceful stays near the Haram,\nso every prayer feels closer.",
     heroImage: {
       src: "/images/hajj/masjid-al-haram.jpg",
       alt: "Road sign pointing to Masjid al-Haram, with minarets behind",
@@ -89,6 +95,10 @@ export const destinations: Destination[] = [
     tagline: "Time for prayer and reflection.",
     description:
       "A guided pace for sacred visits to Masjid an-Nabawi and the historic sites of Madinah — designed with spacious reflection windows so the journey never feels rushed. Care at every step, for every member of the family.",
+      
+
+hoverText:
+  "Visit the blessed places\nwith comfort and reflection.",
     heroImage: {
       src: "/images/hajj/masjid-nabawi.jpg",
       alt: "Courtyard canopies at Masjid an-Nabawi, Madinah",
@@ -116,6 +126,9 @@ export const destinations: Destination[] = [
     tagline: "You worship. We take care of the rest.",
     description:
       "Private transport through the busiest Hajj days — airport pickup, hotel movement, and group transfers coordinated clearly across Saudi Arabia. From arrival to departure, every journey is carefully managed with 24/7 support.",
+
+hoverText:
+  "Seamless travel and transfers,\nso you can focus on worship.",
     heroImage: {
       src: "/images/hajj/private-care.jpg",
       alt: "Zamzam water and dates at the Haram during night prayers",
@@ -143,6 +156,8 @@ export const destinations: Destination[] = [
     tagline: "Documents, hotels, transfers, and rituals — all held together.",
     description:
       "End-to-end Hajj support: verified documents, hotel booking, private transfers, and a guided Umrah & Hajj ritual handbook so every rite is performed with confidence. One calm process from visa to return flight.",
+      hoverText:
+  "Complete guidance from visa\nto your safe return home.",
     heroImage: {
       src: "/images/hajj/masjid-nabawi.jpg",
       alt: "Courtyard canopies at Masjid an-Nabawi, Madinah",

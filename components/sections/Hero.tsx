@@ -89,7 +89,7 @@ export default function Hero() {
 
       <div className="hero-copy relative z-30 flex h-full w-full items-center px-6 md:px-10">
         <div className="max-w-2xl pt-10 md:ml-[8%] md:pt-0">
-          <span className="label-eyebrow-dark mb-6 block">
+          <span className="label-eyebrow-dark mb-6 block font-extrabold">
             Urooj International
           </span>
           <SplitTextReveal
@@ -98,7 +98,7 @@ export default function Hero() {
             className="font-display text-[9.5vw] font-normal leading-[1.05] tracking-tight text-cream sm:text-[8vw] md:text-[5.2vw] md:leading-[0.95]"
             delay={0.3}
           />
-          <p className="mt-8 max-w-md text-base leading-relaxed text-cream/85 md:text-lg">
+          <p className="mt-8 max-w-md text-base leading-relaxed text-cream/85 md:text-lg font-extrabold">
             We manage every detail of your Hajj, Umrah and Ziyarat — documents,
             hotels near the Haram, and private transfers — so you can focus
             entirely on your worship.
@@ -117,7 +117,7 @@ export default function Hero() {
               as="a"
               href="tel:+919971337283"
               data-cursor="link"
-              className="inline-flex items-center gap-2 text-sm tracking-wide text-gold-bright underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-2 text-sm tracking-wide text-gold-bright underline-offset-4 hover:underline font-extrabold"
             >
               Book now: 9971337283
             </Magnetic>

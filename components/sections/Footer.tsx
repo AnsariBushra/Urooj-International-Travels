@@ -267,7 +267,7 @@ export default function Footer() {
             style={{ borderColor: "rgba(248,246,243,0.08)" }}
           >
             {/* Brand */}
-            <div className="md:col-span-4">
+            <div className="text-center md:text-left md:col-span-4">
               <span
                 className="font-display text-xl"
                 style={{ color: "rgba(248,246,243,0.88)" }}
@@ -275,7 +275,7 @@ export default function Footer() {
                 {brand.name}
               </span>
               <p
-                className="mt-3 max-w-xs text-sm leading-relaxed"
+                className="mx-auto mt-3 max-w-xs text-sm leading-relaxed md:mx-0"
                 style={{ color: "rgba(248,246,243,0.4)" }}
               >
                 {brand.tagline}
@@ -283,7 +283,7 @@ export default function Footer() {
             </div>
 
             {/* Contact */}
-            <div className="md:col-span-3 md:col-start-6">
+            <div className="text-center md:text-left md:col-span-3 md:col-start-6">
               <span
                 className="label-eyebrow mb-3 block"
                 style={{ color: "rgba(248,246,243,0.4)" }}
@@ -317,14 +317,14 @@ export default function Footer() {
             </div>
 
             {/* Socials */}
-            <div className="md:col-span-3 md:col-start-10">
+            <div className="text-center md:text-left md:col-span-3 md:col-start-10">
               <span
                 className="label-eyebrow mb-3 block"
                 style={{ color: "rgba(248,246,243,0.4)" }}
               >
                 Follow
               </span>
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col items-center gap-1.5 md:items-start">
                 {brand.socials.map((s) => (
                   <Magnetic
                     key={s.label}
@@ -343,7 +343,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div
-            className="mt-10 flex flex-col gap-2 text-xs md:flex-row md:items-center md:justify-between"
+            className="mt-20 flex flex-col items-center gap-2  text-center text-xs md:flex-row md:justify-between md:items-center md:text-left"
             style={{ color: "rgba(248,246,243,0.25)" }}
           >
             <span>

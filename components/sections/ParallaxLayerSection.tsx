@@ -22,7 +22,10 @@ interface ParallaxLayerSectionProps {
   accent?: "sky" | "rose" | "sage" | "lavender";
 }
 
-const ACCENT_VARS: Record<NonNullable<ParallaxLayerSectionProps["accent"]>, string> = {
+const ACCENT_VARS: Record<
+  NonNullable<ParallaxLayerSectionProps["accent"]>,
+  string
+> = {
   sky: "var(--color-sky)",
   rose: "var(--color-rose)",
   sage: "var(--color-sage)",
@@ -68,9 +71,21 @@ export default function ParallaxLayerSection({
       scrub: true,
     };
 
-    gsap.fromTo(bg, { yPercent: 8 }, { yPercent: -8, ease: "none", scrollTrigger: trigger });
-    gsap.fromTo(image, { yPercent: 14 }, { yPercent: -14, ease: "none", scrollTrigger: trigger });
-    gsap.fromTo(floatEl, { yPercent: 26 }, { yPercent: -26, ease: "none", scrollTrigger: trigger });
+    gsap.fromTo(
+      bg,
+      { yPercent: 8 },
+      { yPercent: -8, ease: "none", scrollTrigger: trigger },
+    );
+    gsap.fromTo(
+      image,
+      { yPercent: 14 },
+      { yPercent: -14, ease: "none", scrollTrigger: trigger },
+    );
+    gsap.fromTo(
+      floatEl,
+      { yPercent: 26 },
+      { yPercent: -26, ease: "none", scrollTrigger: trigger },
+    );
   });
 
   return (
@@ -79,10 +94,15 @@ export default function ParallaxLayerSection({
       className="relative grid min-h-[120vh] grid-cols-1 items-center gap-12 overflow-hidden px-6 py-32 md:grid-cols-12 md:px-10"
     >
       {/* Ambient background layer — slowest moving, gives depth, tinted per-section */}
-      <div className="parallax-bg pointer-events-none absolute inset-x-0 -top-1/4 h-[150%] opacity-50 will-change-transform" aria-hidden>
+      <div
+        className="parallax-bg pointer-events-none absolute inset-x-0 -top-1/4 h-[150%] opacity-50 will-change-transform"
+        aria-hidden
+      >
         <div
           className="h-full w-full"
-          style={{ background: `radial-gradient(circle at 30% 20%, ${accentColor} 0%, transparent 60%)` }}
+          style={{
+            background: `radial-gradient(circle at 30% 20%, ${accentColor} 0%, transparent 60%)`,
+          }}
         />
       </div>
 
@@ -97,11 +117,13 @@ export default function ParallaxLayerSection({
           lines={heading}
           className="font-display text-4xl font-normal leading-[1.05] tracking-tight text-bone md:text-5xl"
         />
-        <p className="mt-6 max-w-md text-base leading-relaxed text-mute">{body}</p>
+        <p className="mt-6 max-w-md text-base leading-relaxed text-mute">
+          {body}
+        </p>
       </div>
 
       <div
-        className={`parallax-image relative z-10 col-span-12 aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(217,164,65,0.15)] will-change-transform md:col-span-5 ${
+        className={`parallax-image relative z-10 col-span-12 aspect-square overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(217,164,65,0.15)] will-change-transform md:col-span-5 ${
           reverse ? "md:order-1 md:col-start-2" : "md:col-start-7"
         }`}
       >
@@ -115,7 +137,10 @@ export default function ParallaxLayerSection({
             style={{ objectPosition: imagePosition }}
           />
         </div>
-        <div className="absolute inset-0 rounded-2xl border border-cream/40" aria-hidden />
+        <div
+          className="absolute inset-0 rounded-2xl border border-cream/40"
+          aria-hidden
+        />
       </div>
 
       {/* Floating foreground accent — fastest layer, reads as nearest to camera */}
@@ -126,7 +151,10 @@ export default function ParallaxLayerSection({
         aria-hidden
       >
         <div className="glass-panel flex items-center gap-2 rounded-full px-5 py-2.5">
-          <span className="h-2 w-2 rounded-full" style={{ background: accentColor }} />
+          <span
+            className="h-2 w-2 rounded-full"
+            style={{ background: accentColor }}
+          />
           <span className="label-eyebrow">{floatLabel ?? eyebrow}</span>
         </div>
       </div>
